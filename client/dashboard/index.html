@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vynora Campus+ | Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Vynora Campus+</h1>
+
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Networking</a>
+            <a href="#">Resources</a>
+            <a href="#">Projects</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="welcome">
+            <h2 id="welcomeMessage"></h2>
+            <p>Welcome to your campus dashboard.</p>
+        </section>
+
+        <section class="profile">
+            <h2>Student Profile</h2>
+
+            <p>
+                <strong>Name:</strong>
+                <span id="studentName"></span>
+            </p>
+
+            <p>
+                <strong>Department:</strong>
+                <span id="department"></span>
+            </p>
+
+            <p>
+                <strong>Year:</strong>
+                <span id="year"></span>
+            </p>
+
+            <p>
+                <strong>Skills:</strong>
+                <span id="skills"></span>
+            </p>
+        </section>
+
+        <section class="modules">
+
+            <h2>Campus+</h2>
+
+            <div class="module-container">
+
+                <div class="module-card"
+                    onclick="openModule('Networking')">
+
+                    <h3>🤝 Networking</h3>
+                    <p>Connect with students.</p>
+
+                </div>
+
+                <div class="module-card"
+                    onclick="openModule('Resources')">
+
+                    <h3>📚 Resources</h3>
+                    <p>Find notes and resources.</p>
+
+                </div>
+
+                <div class="module-card"
+                    onclick="openModule('Projects')">
+
+                    <h3>🚀 Projects</h3>
+                    <p>Find projects and teammates.</p>
+
+                </div>
+
+                <div class="module-card"
+                    onclick="openModule('Communication')">
+
+                    <h3>💬 Communication</h3>
+                    <p>Chat with students and teams.</p>
+
+                </div>
+
+                <div class="module-card"
+                    onclick="openModule('Campus Services')">
+
+                    <h3>🏫 Campus Services</h3>
+                    <p>Check campus facilities and services.</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
