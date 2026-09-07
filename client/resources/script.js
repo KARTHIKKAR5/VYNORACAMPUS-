@@ -1,50 +1,52 @@
 const resources = [
     {
         title: "DSA Unit 1 Notes",
-        category: "Algorithms",
-        type: "Notes"
+        subject: "DSA",
+        type: "Notes",
+        uploadedBy: "Deepu"
     },
     {
-        title: "Machine Learning Basics",
-        category: "AI/ML",
-        type: "Notes"
-    },
-    {
-        title: "React Fundamentals",
-        category: "Web Development",
-        type: "Notes"
+        title: "DBMS Important Questions",
+        subject: "DBMS",
+        type: "Question Paper",
+        uploadedBy: "Ram"
     },
     {
         title: "JavaScript Basics",
-        category: "Programming",
-        type: "Notes"
+        subject: "JavaScript",
+        type: "Notes",
+        uploadedBy: "Varshitha"
     },
     {
-        title: "DSA Previous Questions",
-        category: "Algorithms",
-        type: "Question Paper"
+        title: "React Fundamentals",
+        subject: "Web Development",
+        type: "Notes",
+        uploadedBy: "Karthik"
+    },
+    {
+        title: "Machine Learning Basics",
+        subject: "AI/ML",
+        type: "Notes",
+        uploadedBy: "SR"
     }
 ];
 
 const resourceContainer = document.getElementById("resource-container");
 
 function displayResources(resourceList) {
-    resourceContainer.innerHTML = "";
-
-    resourceList.forEach(function (resource) {
-        const card = document.createElement("div");
-
-        card.className = "resource-card";
-
-        card.innerHTML = `
-            <h3>${resource.title}</h3>
-            <p>Category: ${resource.category}</p>
-            <p>Type: ${resource.type}</p>
-            <button>View Resource</button>
+    const cards = resourceList.map(function (resource) {
+        return `
+            <div class="resource-card">
+                <h3>${resource.title}</h3>
+                <p>Subject: ${resource.subject}</p>
+                <p>Type: ${resource.type}</p>
+                <p>Uploaded by: ${resource.uploadedBy}</p>
+                <button>View Resource</button>
+            </div>
         `;
-
-        resourceContainer.appendChild(card);
     });
+
+    resourceContainer.innerHTML = cards.join("");
 }
 
 displayResources(resources);
@@ -54,13 +56,13 @@ const filterButtons = document.querySelectorAll(".filters button");
 filterButtons.forEach(function (button) {
     button.addEventListener("click", function () {
 
-        const selectedCategory = button.dataset.category;
+        const selectedSubject = button.dataset.subject;
 
-        if (selectedCategory === "All") {
+        if (selectedSubject === "All") {
             displayResources(resources);
         } else {
             const filteredResources = resources.filter(function (resource) {
-                return resource.category === selectedCategory;
+                return resource.subject === selectedSubject;
             });
 
             displayResources(filteredResources);
