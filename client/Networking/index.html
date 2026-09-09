@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,109 @@
 
     <h1>Find Students</h1>
 
+<div class="filters">
+
+    <select id="department-filter">
+        <option value="all">All Departments</option>
+        <option value="CSE">CSE</option>
+        <option value="AIML">AIML</option>
+        <option value="ECE">ECE</option>
+    </select>
+
+    <select id="year-filter">
+        <option value="all">All Years</option>
+        <option value="1">Year 1</option>
+        <option value="2">Year 2</option>
+        <option value="3">Year 3</option>
+        <option value="4">Year 4</option>
+    </select>
+
+</div>
+
+<div id="student-container"></div>
+    <script src="students.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vynora Campus+ - Find Students</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Find Students</h1>
+
+    <div class="filters">
+
+        <!-- Search -->
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search student by name..."
+        >
+
+        <!-- Department -->
+        <select id="department-filter">
+            <option value="all">All Departments</option>
+            <option value="CSE">CSE</option>
+            <option value="AIML">AIML</option>
+            <option value="ECE">ECE</option>
+        </select>
+
+        <!-- Year -->
+        <select id="year-filter">
+            <option value="all">All Years</option>
+            <option value="1">Year 1</option>
+            <option value="2">Year 2</option>
+            <option value="3">Year 3</option>
+            <option value="4">Year 4</option>
+        </select>
+
+        <!-- Skills -->
+        <select id="skill-filter">
+            <option value="all">All Skills</option>
+            <option value="Java">Java</option>
+            <option value="React">React</option>
+            <option value="HTML">HTML</option>
+            <option value="Python">Python</option>
+            <option value="Machine Learning">Machine Learning</option>
+            <option value="SQL">SQL</option>
+            <option value="C++">C++</option>
+            <option value="Embedded Systems">Embedded Systems</option>
+            <option value="IoT">IoT</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="CSS">CSS</option>
+            <option value="Node.js">Node.js</option>
+            <option value="TensorFlow">TensorFlow</option>
+            <option value="NLP">NLP</option>
+        </select>
+
+        <!-- Interests -->
+        <select id="interest-filter">
+            <option value="all">All Interests</option>
+            <option value="Web Development">Web Development</option>
+            <option value="AI">AI</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Robotics">Robotics</option>
+            <option value="IoT">IoT</option>
+            <option value="Design">Design</option>
+            <option value="Machine Learning">Machine Learning</option>
+            <option value="NLP">NLP</option>
+        </select>
+
+    </div>
+
     <div id="student-container"></div>
+
     <script src="students.js"></script>
     <script src="scripts.js"></script>
 
