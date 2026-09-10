@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vynora Campus+ - Communication</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="chat-container">
+
+        <!-- Chat Header -->
+        <header class="chat-header">
+            <h1>Vynora Campus+</h1>
+            <p>Communication</p>
+        </header>
+
+        <!-- Student / Contact List -->
+        <aside class="contacts">
+
+            <h2>Students</h2>
+
+            <button class="student" data-name="Karthik">
+                Karthik
+            </button>
+
+            <button class="student" data-name="Ram">
+                Ram
+            </button>
+
+            <button class="student" data-name="Manideepika">
+                manideepika
+            </button>
+
+            <button class="student" data-name="Varshitha">
+                Varshitha
+            </button>
+
+            <button class="student" data-name="Samuel">
+                Samuel
+            </button>
+
+        </aside>
+
+        <!-- Chat Area -->
+        <main class="chat-area">
+
+            <div class="chat-title">
+                <h2 id="chat-name">Karthik</h2>
+                <span>Online</span>
+            </div>
+
+            <!-- Messages -->
+            <div id="message-container" class="messages">
+            </div>
+
+            <!-- Message Input -->
+            <div class="message-input">
+
+                <input
+                    type="text"
+                    id="message-input"
+                    placeholder="Type a message..."
+                >
+
+                <button id="send-button">
+                    Send
+                </button>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
