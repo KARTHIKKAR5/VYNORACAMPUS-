@@ -1,34 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Vynora - Projects & Teams</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Vynora Campus+ | Projects & Teams</title>
 
   <link rel="stylesheet" href="projects.css">
 </head>
 
+
 <body>
 
+  <!-- HEADER -->
+
   <header class="header">
-    <h1>Vynora Campus+</h1>
-    <p>Projects & Teams</p>
+
+    <div class="header-content">
+
+      <div class="brand">
+
+        <h1>Vynora Campus+</h1>
+
+        <p>Projects & Teams</p>
+
+      </div>
+
+
+      <nav>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a
+          href="projects.html"
+          class="active"
+        >
+          Projects
+        </a>
+
+      </nav>
+
+    </div>
+
   </header>
+
+
+  <!-- MAIN -->
 
   <main class="container">
 
-    <h2>Find Projects & Build Teams</h2>
 
-    <p class="intro">
-      Discover student projects and find teammates with the skills you need.
-    </p>
+    <!-- HERO -->
 
-    <div id="project-container"></div>
+    <section class="hero">
+
+      <div>
+
+        <span class="badge">
+          STUDENT COLLABORATION
+        </span>
+
+        <h2>
+          Find Projects.<br>
+          Build Your Team.
+        </h2>
+
+        <p>
+          Discover student projects, explore required
+          skills and connect with teammates.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <section class="search-box">
+
+      <div class="search-input">
+
+        <span>🔍</span>
+
+        <input
+          type="text"
+          id="project-search"
+          placeholder="Search projects..."
+        >
+
+      </div>
+
+
+      <select id="skill-filter">
+
+        <option value="all">
+          All Skills
+        </option>
+
+      </select>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section class="projects-section">
+
+      <div class="section-title">
+
+        <div>
+
+          <h2>
+            Available Projects
+          </h2>
+
+          <p>
+            Find a project that matches your interests.
+          </p>
+
+        </div>
+
+        <span id="project-count">
+          0 projects
+        </span>
+
+      </div>
+
+
+      <div id="project-container"></div>
+
+    </section>
+
+
+    <!-- CREATE PROJECT -->
+
+    <section class="create-project">
+
+      <div class="create-heading">
+
+        <div>
+
+          <span class="badge">
+            YOUR IDEA
+          </span>
+
+          <h2>
+            Create a Project
+          </h2>
+
+          <p>
+            Have an idea? Start a project and build
+            your team.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <form id="create-project-form">
+
+
+        <div class="form-group">
+
+          <label for="project-title">
+            Project Title
+          </label>
+
+          <input
+            type="text"
+            id="project-title"
+            placeholder="Example: AI Study Planner"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="project-description">
+            Project Description
+          </label>
+
+          <textarea
+            id="project-description"
+            rows="4"
+            placeholder="Describe what your project does..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="project-skills">
+              Required Skills
+            </label>
+
+            <input
+              type="text"
+              id="project-skills"
+              placeholder="React, Node.js, MongoDB"
+              required
+            >
+
+            <small>
+              Separate skills with commas.
+            </small>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="project-team-size">
+              Team Size
+            </label>
+
+            <input
+              type="number"
+              id="project-team-size"
+              placeholder="4"
+              min="2"
+              max="10"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="create-btn"
+        >
+          + Create Project
+        </button>
+
+
+      </form>
+
+    </section>
+
 
   </main>
 
-  <script src="project.js"></script>
+
+  <script src="projects.js"></script>
 
 </body>
+
 </html>
