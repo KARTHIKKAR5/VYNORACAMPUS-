@@ -75,3 +75,9 @@ modules.map(function(module) {
 function openModule(moduleName) {
     alert(`You selected ${moduleName}`);
 }
+
+function editProfile() {
+    alert("Edit Profile clicked");
+}
+
+document.getElementById("editProfileBtn").addEventListener("click", editProfile);
