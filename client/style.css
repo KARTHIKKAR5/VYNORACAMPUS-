@@ -53,14 +53,37 @@ body {
 }
 
 
+/* FILTERS */
+
+.filters {
+    margin-bottom: 20px;
+}
+
+.filters button {
+    padding: 9px 15px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    background: #e5e7eb;
+}
+
+.filters button:hover {
+    background: #d1d5db;
+}
+
+
 /* CARDS */
 
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(250px, 1fr)
-    );
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
 
     gap: 20px;
 }
@@ -70,6 +93,7 @@ body {
 
 .card {
     background: white;
+
     padding: 22px;
 
     border-radius: 12px;
@@ -126,4 +150,19 @@ body {
 
 .card button:hover {
     opacity: 0.8;
+}
+
+
+/* NO RESULTS */
+
+.no-results {
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    color: #666;
 }

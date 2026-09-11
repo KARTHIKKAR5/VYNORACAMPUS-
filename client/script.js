@@ -47,6 +47,48 @@ const timetable = [
         subject: "Computer Networks",
         time: "10:00 AM - 11:00 AM",
         room: "Room 305"
+    },
+
+    {
+        day: "Wednesday",
+        subject: "Artificial Intelligence",
+        time: "9:00 AM - 10:00 AM",
+        room: "Room 101"
+    }
+];
+
+
+// ==========================================
+// CAMPUS SERVICES DATA
+// ==========================================
+
+const campusServices = [
+    {
+        name: "Library",
+        type: "Academic",
+        location: "Main Block",
+        timing: "8:00 AM - 8:00 PM"
+    },
+
+    {
+        name: "Canteen",
+        type: "Food",
+        location: "Student Block",
+        timing: "8:00 AM - 6:00 PM"
+    },
+
+    {
+        name: "Medical Center",
+        type: "Health",
+        location: "Main Block",
+        timing: "9:00 AM - 5:00 PM"
+    },
+
+    {
+        name: "Computer Lab",
+        type: "Facilities",
+        location: "CSE Block",
+        timing: "9:00 AM - 6:00 PM"
     }
 ];
 
@@ -61,66 +103,241 @@ const roomsContainer =
 const timetableContainer =
     document.getElementById("timetable-container");
 
+const servicesContainer =
+    document.getElementById("services-container");
+
 
 // ==========================================
-// DISPLAY FREE ROOMS DYNAMICALLY
+// DISPLAY FREE ROOMS
 // ==========================================
 
-freeRooms.forEach(function (room) {
+function displayRooms(roomList) {
 
-    const card = document.createElement("div");
+    roomsContainer.innerHTML = "";
 
-    card.className = "card";
+    if (roomList.length === 0) {
 
-    const status = room.available
-        ? `<p class="available">✅ Available</p>`
-        : `<p class="unavailable">❌ Not Available</p>`;
+        roomsContainer.innerHTML =
+            `<p class="no-results">No rooms found.</p>`;
 
-    card.innerHTML = `
-        <h3>${room.room}</h3>
+        return;
+    }
 
-        <p>
-            Building: ${room.building}
-        </p>
+    roomList.forEach(function (room) {
 
-        ${status}
+        const card = document.createElement("div");
 
-        <button onclick="viewRoom('${room.room}')">
-            View Room
-        </button>
-    `;
+        card.className = "card";
 
-    roomsContainer.appendChild(card);
+        const status = room.available
+            ? `<p class="available">✅ Available</p>`
+            : `<p class="unavailable">❌ Not Available</p>`;
+
+        card.innerHTML = `
+            <h3>${room.room}</h3>
+
+            <p>
+                Building: ${room.building}
+            </p>
+
+            ${status}
+
+            <button onclick="viewRoom('${room.room}')">
+                View Room
+            </button>
+        `;
+
+        roomsContainer.appendChild(card);
+    });
+}
+
+
+// ==========================================
+// DISPLAY TIMETABLE
+// ==========================================
+
+function displayTimetable(classList) {
+
+    timetableContainer.innerHTML = "";
+
+    if (classList.length === 0) {
+
+        timetableContainer.innerHTML =
+            `<p class="no-results">No classes found.</p>`;
+
+        return;
+    }
+
+    classList.forEach(function (classItem) {
+
+        const card = document.createElement("div");
+
+        card.className = "card";
+
+        card.innerHTML = `
+            <h3>${classItem.subject}</h3>
+
+            <p>
+                📅 Day: ${classItem.day}
+            </p>
+
+            <p>
+                🕐 Time: ${classItem.time}
+            </p>
+
+            <p>
+                🏫 Room: ${classItem.room}
+            </p>
+        `;
+
+        timetableContainer.appendChild(card);
+    });
+}
+
+
+// ==========================================
+// DISPLAY CAMPUS SERVICES
+// ==========================================
+
+function displayServices(serviceList) {
+
+    servicesContainer.innerHTML = "";
+
+    if (serviceList.length === 0) {
+
+        servicesContainer.innerHTML =
+            `<p class="no-results">No services found.</p>`;
+
+        return;
+    }
+
+    serviceList.forEach(function (service) {
+
+        const card = document.createElement("div");
+
+        card.className = "card";
+
+        card.innerHTML = `
+            <h3>${service.name}</h3>
+
+            <p>
+                Type: ${service.type}
+            </p>
+
+            <p>
+                📍 Location: ${service.location}
+            </p>
+
+            <p>
+                🕐 Timing: ${service.timing}
+            </p>
+
+            <button onclick="viewService('${service.name}')">
+                View Service
+            </button>
+        `;
+
+        servicesContainer.appendChild(card);
+    });
+}
+
+
+// ==========================================
+// ROOM FILTER
+// ==========================================
+
+const roomFilterButtons =
+    document.querySelectorAll("[data-building]");
+
+roomFilterButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const selectedBuilding =
+            button.dataset.building;
+
+        if (selectedBuilding === "All") {
+
+            displayRooms(freeRooms);
+
+        } else {
+
+            const filteredRooms =
+                freeRooms.filter(function (room) {
+
+                    return room.building === selectedBuilding;
+
+                });
+
+            displayRooms(filteredRooms);
+        }
+    });
 });
 
 
 // ==========================================
-// DISPLAY TIMETABLE DYNAMICALLY
+// TIMETABLE FILTER
 // ==========================================
 
-timetable.forEach(function (classItem) {
+const timetableFilterButtons =
+    document.querySelectorAll("[data-day]");
 
-    const card = document.createElement("div");
+timetableFilterButtons.forEach(function (button) {
 
-    card.className = "card";
+    button.addEventListener("click", function () {
 
-    card.innerHTML = `
-        <h3>${classItem.subject}</h3>
+        const selectedDay =
+            button.dataset.day;
 
-        <p>
-            📅 Day: ${classItem.day}
-        </p>
+        if (selectedDay === "All") {
 
-        <p>
-            🕐 Time: ${classItem.time}
-        </p>
+            displayTimetable(timetable);
 
-        <p>
-            🏫 Room: ${classItem.room}
-        </p>
-    `;
+        } else {
 
-    timetableContainer.appendChild(card);
+            const filteredClasses =
+                timetable.filter(function (classItem) {
+
+                    return classItem.day === selectedDay;
+
+                });
+
+            displayTimetable(filteredClasses);
+        }
+    });
+});
+
+
+// ==========================================
+// CAMPUS SERVICE FILTER
+// ==========================================
+
+const serviceFilterButtons =
+    document.querySelectorAll("[data-service]");
+
+serviceFilterButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const selectedService =
+            button.dataset.service;
+
+        if (selectedService === "All") {
+
+            displayServices(campusServices);
+
+        } else {
+
+            const filteredServices =
+                campusServices.filter(function (service) {
+
+                    return service.type === selectedService;
+
+                });
+
+            displayServices(filteredServices);
+        }
+    });
 });
 
 
@@ -132,3 +349,24 @@ function viewRoom(roomName) {
 
     alert(`You selected ${roomName}`);
 }
+
+
+// ==========================================
+// SERVICE BUTTON
+// ==========================================
+
+function viewService(serviceName) {
+
+    alert(`You selected ${serviceName}`);
+}
+
+
+// ==========================================
+// INITIAL DISPLAY
+// ==========================================
+
+displayRooms(freeRooms);
+
+displayTimetable(timetable);
+
+displayServices(campusServices);
