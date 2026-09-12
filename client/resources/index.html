@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vynora Campus+ - Resources</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Vynora Campus+</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Resources</a>
+            <a href="#">Teams</a>
+            <a href="#">Networking</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>📚 Resources & Notes</h2>
+        <p>Find useful notes and learning resources shared by students.</p>
+
+        <div class="filters">
+            <button data-subject="All">All</button>
+            <button data-subject="DSA">DSA</button>
+            <button data-subject="DBMS">DBMS</button>
+            <button data-subject="JavaScript">JavaScript</button>
+            <button data-subject="Web Development">Web Development</button>
+            <button data-subject="AI/ML">AI/ML</button>
+        </div>
+
+        <section class="add-resource">
+            <h2>Add Resource</h2>
+
+            <form id="resource-form">
+
+                <input type="text" id="resource-title" placeholder="Resource title">
+
+                <input type="text" id="resource-subject" placeholder="Subject">
+
+                <textarea id="resource-description" placeholder="Description"></textarea>
+
+                <button type="submit">Add Resource</button>
+
+            </form>
+        </section>
+        <section id="resource-container">
+            <!-- Resource cards will appear here using JavaScript -->
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
