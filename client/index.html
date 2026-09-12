@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vynora Campus+ | Campus Services</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+        <h1>Vynora Campus+</h1>
+        <p>Campus Services</p>
+    </header>
+
+
+    <main class="container">
+
+        <!-- ==============================
+             FREE ROOMS
+        =============================== -->
+
+        <section class="service-section">
+
+            <h2>🏫 Free Rooms</h2>
+
+            <p class="section-description">
+                Find available rooms on campus
+            </p>
+
+            <!-- ROOM FILTER -->
+
+            <div class="filters">
+
+                <button data-building="All">All</button>
+                <button data-building="Main Block">Main Block</button>
+                <button data-building="CSE Block">CSE Block</button>
+                <button data-building="ECE Block">ECE Block</button>
+
+            </div>
+
+            <!-- ROOM SEARCH -->
+
+            <input
+                type="text"
+                id="roomSearch"
+                class="search-input"
+                placeholder="Search room or building"
+            >
+
+            <div id="rooms-container" class="cards-container">
+                <!-- Room cards created using JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             TIMETABLE
+        =============================== -->
+
+        <section class="service-section">
+
+            <h2>📅 Timetable</h2>
+
+            <p class="section-description">
+                View your class schedule
+            </p>
+
+            <!-- DAY FILTER -->
+
+            <div class="filters">
+
+                <button data-day="All">All</button>
+                <button data-day="Monday">Monday</button>
+                <button data-day="Tuesday">Tuesday</button>
+                <button data-day="Wednesday">Wednesday</button>
+
+            </div>
+
+            <!-- TIMETABLE SEARCH -->
+
+            <input
+                type="text"
+                id="timeSearch"
+                class="search-input"
+                placeholder="Search subject, day or time"
+            >
+
+            <div id="timetable-container" class="cards-container">
+                <!-- Timetable cards created using JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             CAMPUS SERVICES
+        =============================== -->
+
+        <section class="service-section">
+
+            <h2>🏢 Campus Services</h2>
+
+            <p class="section-description">
+                Explore useful services available on campus
+            </p>
+
+            <!-- SERVICE FILTER -->
+
+            <div class="filters">
+
+                <button data-service="All">All</button>
+                <button data-service="Academic">Academic</button>
+                <button data-service="Food">Food</button>
+                <button data-service="Health">Health</button>
+                <button data-service="Facilities">Facilities</button>
+
+            </div>
+
+            <!-- SERVICE SEARCH -->
+
+            <input
+                type="text"
+                id="serviceSearch"
+                class="search-input"
+                placeholder="Search service, type or location"
+            >
+
+            <div id="services-container" class="cards-container">
+                <!-- Service cards created using JavaScript -->
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
