@@ -58,7 +58,13 @@ function displayResources(resourceList) {
     });
 
     resourceContainer.innerHTML = cards.join("");
-    const viewButtons = document.querySelectorAll(".view-resource");
+
+
+    // VIEW RESOURCE
+
+    const viewButtons =
+        document.querySelectorAll(".view-resource");
+
 
     viewButtons.forEach(function (button, index) {
 
@@ -81,22 +87,7 @@ function displayResources(resourceList) {
 
 displayResources(resources);
 
-const viewButtons = document.querySelectorAll(".view-resource");
-viewButtons.forEach(function (button, index) {
-    const resource = resources[index];
 
-    button.addEventListener("click", function () {
-
-        alert(
-            "Title: " + resource.title +
-            "\nSubject: " + resource.subject +
-            "\nType: " + resource.type +
-            "\nUploaded by: " + resource.uploadedBy
-        );
-
-    });
-
-});
 // -----------------------------
 // SUBJECT FILTERING
 // -----------------------------
