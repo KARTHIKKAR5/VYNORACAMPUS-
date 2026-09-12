@@ -51,19 +51,52 @@ function displayResources(resourceList) {
 
                 <p>Uploaded by: ${resource.uploadedBy}</p>
 
-                <button>View Resource</button>
+                <button class="view-resource">View Resource</button>
 
             </div>
         `;
     });
 
     resourceContainer.innerHTML = cards.join("");
+    const viewButtons = document.querySelectorAll(".view-resource");
+
+    viewButtons.forEach(function (button, index) {
+
+        button.addEventListener("click", function () {
+
+            const resource = resourceList[index];
+
+            alert(
+                "Title: " + resource.title +
+                "\nSubject: " + resource.subject +
+                "\nType: " + resource.type +
+                "\nUploaded by: " + resource.uploadedBy
+            );
+
+        });
+
+    });
 }
 
 
 displayResources(resources);
 
+const viewButtons = document.querySelectorAll(".view-resource");
+viewButtons.forEach(function (button, index) {
+    const resource = resources[index];
 
+    button.addEventListener("click", function () {
+
+        alert(
+            "Title: " + resource.title +
+            "\nSubject: " + resource.subject +
+            "\nType: " + resource.type +
+            "\nUploaded by: " + resource.uploadedBy
+        );
+
+    });
+
+});
 // -----------------------------
 // SUBJECT FILTERING
 // -----------------------------
