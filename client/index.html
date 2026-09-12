@@ -12,6 +12,8 @@
 
 <body>
 
+    <!-- HEADER -->
+
     <header class="header">
         <h1>Vynora Campus+</h1>
         <p>Campus Services</p>
@@ -20,7 +22,9 @@
 
     <main class="container">
 
-        <!-- FREE ROOMS -->
+        <!-- ==============================
+             FREE ROOMS
+        =============================== -->
 
         <section class="service-section">
 
@@ -29,6 +33,8 @@
             <p class="section-description">
                 Find available rooms on campus
             </p>
+
+            <!-- ROOM FILTER -->
 
             <div class="filters">
 
@@ -39,14 +45,25 @@
 
             </div>
 
+            <!-- ROOM SEARCH -->
+
+            <input
+                type="text"
+                id="roomSearch"
+                class="search-input"
+                placeholder="Search room or building"
+            >
+
             <div id="rooms-container" class="cards-container">
-                <!-- Room cards will be created using JavaScript -->
+                <!-- Room cards created using JavaScript -->
             </div>
 
         </section>
 
 
-        <!-- TIMETABLE -->
+        <!-- ==============================
+             TIMETABLE
+        =============================== -->
 
         <section class="service-section">
 
@@ -55,6 +72,8 @@
             <p class="section-description">
                 View your class schedule
             </p>
+
+            <!-- DAY FILTER -->
 
             <div class="filters">
 
@@ -65,14 +84,25 @@
 
             </div>
 
+            <!-- TIMETABLE SEARCH -->
+
+            <input
+                type="text"
+                id="timeSearch"
+                class="search-input"
+                placeholder="Search subject, day or time"
+            >
+
             <div id="timetable-container" class="cards-container">
-                <!-- Timetable cards will be created using JavaScript -->
+                <!-- Timetable cards created using JavaScript -->
             </div>
 
         </section>
 
 
-        <!-- CAMPUS SERVICES -->
+        <!-- ==============================
+             CAMPUS SERVICES
+        =============================== -->
 
         <section class="service-section">
 
@@ -81,6 +111,8 @@
             <p class="section-description">
                 Explore useful services available on campus
             </p>
+
+            <!-- SERVICE FILTER -->
 
             <div class="filters">
 
@@ -92,8 +124,17 @@
 
             </div>
 
+            <!-- SERVICE SEARCH -->
+
+            <input
+                type="text"
+                id="serviceSearch"
+                class="search-input"
+                placeholder="Search service, type or location"
+            >
+
             <div id="services-container" class="cards-container">
-                <!-- Service cards will be created using JavaScript -->
+                <!-- Service cards created using JavaScript -->
             </div>
 
         </section>
