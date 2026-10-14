@@ -60,14 +60,15 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 app.use('/api', authenticate);
 
-// Health check
-app.get(['/api/health', '/api/v1/health'], (req, res) => {
+// Health check for Render and external monitors
+app.get(['/', '/health', '/api/health', '/api/v1/health'], (req, res) => {
   res.json({
     status: 'healthy',
-    database: 'connected',
+    database: mongoose.connection.readyState === 1 ? 'connected' : 'connecting',
     uptime: process.uptime(),
     timestamp: new Date().toISOString(),
-    version: '1.0.0'
+    version: '1.0.0',
+    platform: 'Vynora Campus+ API'
   });
 });
 
@@ -117,11 +118,11 @@ async function startServer() {
     console.warn('[Seed Skipped] Database is not connected yet; skipping initial seed.');
   }
 
-  httpServer.listen(PORT, () => {
+  httpServer.listen(Number(PORT), '0.0.0.0', () => {
     console.info(`================================================`);
-    console.info(` VYNORA CAMPUS+ SERVER RUNNING ON PORT :${PORT}`);
-    console.info(` API Base: http://localhost:${PORT}/api/v1`);
-    console.info(` Socket.IO: ws://localhost:${PORT}`);
+    console.info(` VYNORA CAMPUS+ SERVER RUNNING ON 0.0.0.0:${PORT}`);
+    console.info(` API Base: http://0.0.0.0:${PORT}/api/v1`);
+    console.info(` Socket.IO: ws://0.0.0.0:${PORT}`);
     console.info(`================================================`);
   });
 }
