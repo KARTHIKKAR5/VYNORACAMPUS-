@@ -227,8 +227,9 @@ export default function AuthPage({ onAuth }: { onAuth: (student: StudentSession)
       const res = await authApi.register(payload);
       setVerified(true);
       window.setTimeout(() => onAuth(res.student), 700);
-    } catch (cause) {
-      setError((cause as Error).message);
+    } catch (cause: any) {
+      const msg = cause?.message || (typeof cause === 'string' ? cause : 'Failed to complete registration.');
+      setError(msg);
     } finally {
       setPending(false);
     }

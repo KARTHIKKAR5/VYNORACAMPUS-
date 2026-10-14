@@ -20,7 +20,11 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(data.error || `HTTP ${response.status}: Failed to complete request`);
+    const errMsg =
+      typeof data.error === 'string'
+        ? data.error
+        : data.error?.message || data.message || `HTTP ${response.status}: Failed to complete request`;
+    throw new Error(errMsg);
   }
 
   return data as T;
