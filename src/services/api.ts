@@ -1,7 +1,29 @@
 // VYNORA UNIFIED BACKEND REST CLIENT
 
+export const getApiBase = (): string => {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl) return envUrl.replace(/\/$/, '');
+  if (typeof window !== 'undefined' && window.location.hostname.endsWith('vercel.app')) {
+    return 'https://vynoracampus-2.onrender.com/api/v1';
+  }
+  return '/api/v1';
+};
+
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
-  const url = path.startsWith('/api') ? path : `/api/v1${path}`;
+  const base = getApiBase();
+  let url: string;
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    url = path;
+  } else if (path.startsWith('/api/v1')) {
+    url = base.endsWith('/api/v1') ? `${base.slice(0, -7)}${path}` : `${base}${path}`;
+  } else if (path.startsWith('/api')) {
+    const rootBase = base.replace(/\/api\/v1$/, '');
+    url = `${rootBase}${path}`;
+  } else {
+    const cleanPath = path.startsWith('/') ? path : `/${path}`;
+    url = `${base}${cleanPath}`;
+  }
+
   const headers: Record<string, string> = {
     'Accept': 'application/json',
     ...(options.headers as Record<string, string> || {})

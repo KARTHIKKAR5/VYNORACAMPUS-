@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/v1/:path*",
+      "destination": "https://vynoracampus-2.onrender.com/api/v1/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://vynoracampus-2.onrender.com/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

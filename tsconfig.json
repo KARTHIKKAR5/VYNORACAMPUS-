@@ -15,7 +15,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "types": ["react", "react-dom", "node"]
+    "types": ["react", "react-dom", "node", "vite/client"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 import { connectDB } from './config/db.mjs';
 import { seedDatabase } from './seeds/seed.mjs';
 import { setupSocketIO } from './sockets/index.mjs';

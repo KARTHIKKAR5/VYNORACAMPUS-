@@ -4,7 +4,13 @@ let socket: Socket | null = null;
 
 export function getSocket(): Socket {
   if (!socket) {
-    socket = io('/', {
+    const socketUrl =
+      import.meta.env.VITE_SOCKET_URL ||
+      (typeof window !== 'undefined' && window.location.hostname.endsWith('vercel.app')
+        ? 'https://vynoracampus-2.onrender.com'
+        : '/');
+
+    socket = io(socketUrl, {
       path: '/socket.io',
       transports: ['websocket', 'polling'],
       withCredentials: true,

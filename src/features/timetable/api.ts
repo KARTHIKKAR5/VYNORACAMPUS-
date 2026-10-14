@@ -1,3 +1,4 @@
+import { getApiBase } from '../../services/api'
 import type { TimetableCurrentSnapshot, TimetableSnapshot } from './types'
 
 export type TimetableBatchOption = {
@@ -15,7 +16,9 @@ export type TimetableOptionsResponse = {
 }
 
 const api = async <T>(path: string): Promise<T> => {
-  const response = await fetch(`/api/v1/timetable/${path}`, {
+  const base = getApiBase();
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  const response = await fetch(`${base}/timetable/${cleanPath}`, {
     credentials: 'include',
     headers: { 'Accept': 'application/json' }
   });
