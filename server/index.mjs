@@ -109,22 +109,38 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Startup sequence: connect DB, seed baseline dataset, listen
-async function startServer() {
-  await connectDB();
-  if (mongoose.connection.readyState === 1) {
-    await seedDatabase().catch((err) => console.warn('[Seed Error]', err.message));
-  } else {
-    console.warn('[Seed Skipped] Database is not connected yet; skipping initial seed.');
+// Process-level crash prevention
+process.on('uncaughtException', (err) => {
+  console.error('[Process Uncaught Exception]', err.message || err);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('[Process Unhandled Rejection]', reason?.message || reason);
+});
+
+// Startup sequence: bind port immediately so Render health checks succeed instantly
+const listenPort = Number(process.env.PORT) || 8787;
+
+httpServer.listen(listenPort, '0.0.0.0', () => {
+  console.info(`================================================`);
+  console.info(` VYNORA CAMPUS+ SERVER RUNNING ON 0.0.0.0:${listenPort}`);
+  console.info(` API Base: http://0.0.0.0:${listenPort}/api/v1`);
+  console.info(` Health Check: http://0.0.0.0:${listenPort}/health`);
+  console.info(` Socket.IO: ws://0.0.0.0:${listenPort}`);
+  console.info(`================================================`);
+});
+
+// Asynchronously initialize database and seeds in background
+(async function initDatabase() {
+  try {
+    await connectDB();
+    if (mongoose.connection.readyState === 1) {
+      await seedDatabase().catch((err) => console.warn('[Seed Error]', err.message));
+    } else {
+      console.warn('[Seed Skipped] Database is not connected yet; skipping initial seed.');
+    }
+  } catch (err) {
+    console.error('[DB Startup Error]', err.message);
   }
+})();
 
-  httpServer.listen(Number(PORT), '0.0.0.0', () => {
-    console.info(`================================================`);
-    console.info(` VYNORA CAMPUS+ SERVER RUNNING ON 0.0.0.0:${PORT}`);
-    console.info(` API Base: http://0.0.0.0:${PORT}/api/v1`);
-    console.info(` Socket.IO: ws://0.0.0.0:${PORT}`);
-    console.info(`================================================`);
-  });
-}
-
-startServer();
