@@ -100,7 +100,11 @@ app.use((err, req, res, next) => {
 // Startup sequence: connect DB, seed baseline dataset, listen
 async function startServer() {
   await connectDB();
-  await seedDatabase().catch((err) => console.warn('[Seed Error]', err.message));
+  if (mongoose.connection.readyState === 1) {
+    await seedDatabase().catch((err) => console.warn('[Seed Error]', err.message));
+  } else {
+    console.warn('[Seed Skipped] Database is not connected yet; skipping initial seed.');
+  }
 
   httpServer.listen(PORT, () => {
     console.info(`================================================`);

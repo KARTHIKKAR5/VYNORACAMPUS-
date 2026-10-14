@@ -10,7 +10,7 @@ export async function connectDB() {
   if (isConnected) return mongoose.connection;
   try {
     const conn = await mongoose.connect(MONGODB_URI, {
-      serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 15000,
       autoIndex: true
     });
     isConnected = true;
