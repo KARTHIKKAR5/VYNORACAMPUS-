@@ -6,7 +6,7 @@ import { Message } from '../models/Message.mjs';
 export function setupSocketIO(httpServer) {
   const io = new Server(httpServer, {
     cors: {
-      origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+      origin: (origin, callback) => callback(null, true),
       credentials: true
     },
     pingTimeout: 30000,

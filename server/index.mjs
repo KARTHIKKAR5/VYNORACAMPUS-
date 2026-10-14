@@ -38,9 +38,20 @@ const io = setupSocketIO(httpServer);
 app.set('io', io);
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  ...(process.env.CLIENT_URL ? [process.env.CLIENT_URL.trim(), process.env.CLIENT_URL.trim().replace(/\/$/, '')] : [])
+];
+
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+        return callback(null, true);
+      }
+      return callback(null, true);
+    },
     credentials: true
   })
 );

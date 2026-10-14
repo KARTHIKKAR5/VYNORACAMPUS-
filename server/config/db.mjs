@@ -8,8 +8,12 @@ let isConnected = false;
 
 export async function connectDB() {
   if (isConnected) return mongoose.connection;
+  const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/vynora';
+  if (!process.env.MONGODB_URI) {
+    console.warn('[MongoDB] MONGODB_URI not set in environment! Defaulting to local: mongodb://127.0.0.1:27017/vynora');
+  }
   try {
-    const conn = await mongoose.connect(MONGODB_URI, {
+    const conn = await mongoose.connect(uri, {
       serverSelectionTimeoutMS: 15000,
       autoIndex: true
     });
