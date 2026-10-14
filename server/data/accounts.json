@@ -1,0 +1,17 @@
+[
+  {
+    "id": "stu_cec75111d69dd6e7ed",
+    "name": "karthik kavali",
+    "email": "karthikkavali03@gmail.com",
+    "passwordHash": "3caf4fb27a2a557f3d54b2b35de67ba0:5f5596f158dca3b515740f1c9eb77cb741b97a25d1361bcc6cbbbb41c8a942a2d446d798ad842f3c65fabed1811503a213ba3fd78f35fe5dcdebd76113f87da5",
+    "createdAt": "2026-09-13T15:47:21.111Z",
+    "academicProfile": {
+      "university": "SR University",
+      "degree": "B.Tech",
+      "program": "CSE-AIML",
+      "year": "Third",
+      "batch": "10",
+      "academicYear": "2026-27"
+    }
+  }
+]

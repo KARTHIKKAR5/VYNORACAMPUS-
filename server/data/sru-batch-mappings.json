@@ -1,0 +1,57 @@
+[
+  {
+    "id": "sru-btech-cse-aiml-third-10",
+    "degree": "B.Tech",
+    "program": "CSE-AIML",
+    "year": "Third",
+    "batchNumber": "10",
+    "sruBatchCode": "24BTCAIAIB10",
+    "academicSession": "2026-27",
+    "active": true,
+    "lastVerified": "2026-10-14"
+  },
+  {
+    "id": "sru-btech-cse-aiml-third-09",
+    "degree": "B.Tech",
+    "program": "CSE-AIML",
+    "year": "Third",
+    "batchNumber": "09",
+    "sruBatchCode": "24BTCAIAIB09",
+    "academicSession": "2026-27",
+    "active": true,
+    "lastVerified": "2026-10-14"
+  },
+  {
+    "id": "sru-btech-cse-third-01",
+    "degree": "B.Tech",
+    "program": "CSE",
+    "year": "Third",
+    "batchNumber": "01",
+    "sruBatchCode": "24BTCSCSB01",
+    "academicSession": "2026-27",
+    "active": true,
+    "lastVerified": "2026-10-14"
+  },
+  {
+    "id": "sru-btech-cse-ds-third-01",
+    "degree": "B.Tech",
+    "program": "CSE-Data Science",
+    "year": "Third",
+    "batchNumber": "01",
+    "sruBatchCode": "24BTCDSIB01",
+    "academicSession": "2026-27",
+    "active": true,
+    "lastVerified": "2026-10-14"
+  },
+  {
+    "id": "sru-btech-ece-second-01",
+    "degree": "B.Tech",
+    "program": "ECE",
+    "year": "Second",
+    "batchNumber": "01",
+    "sruBatchCode": "25BTECEB01",
+    "academicSession": "2026-27",
+    "active": true,
+    "lastVerified": "2026-10-14"
+  }
+]
